@@ -8,7 +8,7 @@
 #   include <QtGui/qopenglext.h>
 #endif
 
-#include <osgQOpenGL/Export>
+#include <osgQOpenGL/Export.h>
 #include <OpenThreads/ReadWriteMutex>
 
 #ifdef WIN32

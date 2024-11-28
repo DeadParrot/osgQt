@@ -1,5 +1,5 @@
 #include <osgQOpenGL/CullVisitorEx>
-#include <osgQOpenGL/RenderStageEx>
+#include <osgQOpenGL/RenderStageEx.h>
 
 /// Needed for mixing osg rendering with Qt 2D drawing using QPainter...
 /// See http://forum.openscenegraph.org/viewtopic.php?t=15627&view=previous

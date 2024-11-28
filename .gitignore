@@ -78,3 +78,6 @@ PlatformSpecifics/Windows/*.rc
 # Visual Studio - Browsing Database File
 *.sdf
 *.opensdf
+
+build
+build/*

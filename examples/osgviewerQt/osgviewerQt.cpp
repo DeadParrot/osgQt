@@ -9,7 +9,7 @@
     MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
 */
 
-#include <osgQOpenGL/osgQOpenGLWidget>
+#include <osgQOpenGL/osgQOpenGLWidget.h>
 
 #include <osgDB/ReadFile>
 #include <osgUtil/Optimizer>

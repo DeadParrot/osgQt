@@ -1,7 +1,7 @@
 #ifndef GRAPHICSWINDOWEX_H
 #define GRAPHICSWINDOWEX_H
 
-#include <osgQOpenGL/Export>
+#include <osgQOpenGL/Export.h>
 
 #include <osgViewer/GraphicsWindow>
 

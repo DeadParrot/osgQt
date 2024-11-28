@@ -1,55 +1,62 @@
-IF( Qt6Widgets_FOUND )
+IF(Qt6Widgets_FOUND)
     include(GenerateExportHeader)
 
+    # Library name
     SET(LIB_NAME osgQOpenGL)
-    SET(HEADER_INSTALL_DIR osgQOpenGL)
 
-    set(CMAKE_INCLUDE_CURRENT_DIR yes)
+    # Define header and source paths
+    SET(HEADER_PATH ${CMAKE_CURRENT_SOURCE_DIR}/../../include/osgQOpenGL)
+    SET(SOURCE_PATH ${CMAKE_CURRENT_SOURCE_DIR})
 
-    SET(HEADER_PATH ../../include/osgQOpenGL)
-
-    SET(SOURCE_H 
-        ${HEADER_PATH}/osgQOpenGLWidget
-        ${HEADER_PATH}/osgQOpenGLWindow
-        ${HEADER_PATH}/OSGRenderer
+    # List of headers (use full paths)
+    SET(SOURCE_H
+        ${HEADER_PATH}/osgQOpenGLWidget.h
+        ${HEADER_PATH}/osgQOpenGLWindow.h
+        ${HEADER_PATH}/OSGRenderer.h
     )
 
-    qt6_wrap_cpp(SOURCES_H_MOC ${SOURCE_H} #[[OPTIONS ${MOC_OPTIONS}]])
-
-    SET(TARGET_H
-        ${SOURCE_H}
-        ${HEADER_PATH}/CullVisitorEx
-        ${HEADER_PATH}/GraphicsWindowEx
-        ${HEADER_PATH}/RenderStageEx
-        ${HEADER_PATH}/StateEx
-        ${CMAKE_CURRENT_BINARY_DIR}/Export
+    # List of source files
+    SET(SOURCE_CPP
+        ${SOURCE_PATH}/CullVisitorEx.cpp
+        ${SOURCE_PATH}/GraphicsWindowEx.cpp
+        ${SOURCE_PATH}/osgQOpenGLWidget.cpp
+        ${SOURCE_PATH}/osgQOpenGLWindow.cpp
+        ${SOURCE_PATH}/OSGRenderer.cpp
+        ${SOURCE_PATH}/RenderStageEx.cpp
+        ${SOURCE_PATH}/StateEx.cpp
     )
 
+    # Run MOC for Qt6 headers
+    qt6_wrap_cpp(SOURCES_H_MOC ${SOURCE_H})
 
-    SET(TARGET_SRC
-        CullVisitorEx.cpp
-        GraphicsWindowEx.cpp
-        osgQOpenGLWidget.cpp
-        osgQOpenGLWindow.cpp
-        OSGRenderer.cpp
-        RenderStageEx.cpp
-        StateEx.cpp
+    # Add the library target
+    add_library(${LIB_NAME}
+        ${SOURCE_CPP}
         ${SOURCES_H_MOC}
-        ${OPENSCENEGRAPH_VERSIONINFO_RC}
     )
 
-    SET(TARGET_LIBRARIES Qt6::Widgets Qt6::OpenGL Qt6::OpenGLWidgets)
-    SET(TARGET_LIBRARIES_VARS
-        OSG_LIBRARY
-        OSGUTIL_LIBRARY
-        OSGVIEWER_LIBRARY
-        OSGGA_LIBRARY
-        OSGDB_LIBRARY
-        OPENTHREADS_LIBRARY
+    # Include directories
+    target_include_directories(${LIB_NAME} PRIVATE
+        ${CMAKE_CURRENT_SOURCE_DIR}/../../include    # Include parent include folder
+        ${CMAKE_CURRENT_BINARY_DIR}                 # For generated headers
     )
 
-    SETUP_LIBRARY(${LIB_NAME})
+    # Link Qt6 libraries
+    target_link_libraries(${LIB_NAME} PRIVATE
+        Qt6::Widgets Qt6::OpenGL Qt6::OpenGLWidgets
+    )
 
-    generate_export_header(${LIB_NAME} EXPORT_FILE_NAME "Export")
+    # Generate export header
+    generate_export_header(${LIB_NAME} EXPORT_FILE_NAME "${CMAKE_CURRENT_BINARY_DIR}/Export.h")
 
+    # Installation rules (optional)
+    install(TARGETS ${LIB_NAME}
+        ARCHIVE DESTINATION lib
+        LIBRARY DESTINATION lib
+        RUNTIME DESTINATION bin
+    )
+    install(DIRECTORY ${HEADER_PATH}/
+        DESTINATION include/osgQOpenGL
+        FILES_MATCHING PATTERN "*.h"
+    )
 ENDIF()

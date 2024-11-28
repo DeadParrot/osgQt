@@ -1,7 +1,7 @@
 #ifndef STATEEX_H
 #define STATEEX_H
 
-#include <osgQOpenGL/Export>
+#include <osgQOpenGL/Export.h>
 
 #include <osg/State>
 

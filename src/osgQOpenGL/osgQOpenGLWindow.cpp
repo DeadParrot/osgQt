@@ -1,5 +1,5 @@
-#include <osgQOpenGL/osgQOpenGLWindow>
-#include <osgQOpenGL/OSGRenderer>
+#include <osgQOpenGL/osgQOpenGLWindow.h>
+#include <osgQOpenGL/OSGRenderer.h>
 
 #include <osgViewer/Viewer>
 #include <osg/GL>

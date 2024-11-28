@@ -1,7 +1,7 @@
 #ifndef CULLVISITOREX_H
 #define CULLVISITOREX_H
 
-#include <osgQOpenGL/Export>
+#include <osgQOpenGL/Export.h>
 
 #include <osgUtil/CullVisitor>
 

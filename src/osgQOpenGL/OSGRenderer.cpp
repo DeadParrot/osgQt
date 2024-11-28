@@ -14,10 +14,10 @@
 // along with this program; if not, write to the Free Software
 // Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301, USA.
 
-#include <osgQOpenGL/OSGRenderer>
+#include <osgQOpenGL/OSGRenderer.h>
 
-#include <osgQOpenGL/osgQOpenGLWindow>
-#include <osgQOpenGL/osgQOpenGLWidget>
+#include <osgQOpenGL/osgQOpenGLWindow.h>
+#include <osgQOpenGL/osgQOpenGLWidget.h>
 
 //#include <osgQOpenGL/CullVisitorEx>
 //#include <osgQOpenGL/GraphicsWindowEx>

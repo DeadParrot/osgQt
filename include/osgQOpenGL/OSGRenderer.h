@@ -17,7 +17,7 @@
 #ifndef OSGRENDERER_H
 #define OSGRENDERER_H
 
-#include <osgQOpenGL/Export>
+#include <osgQOpenGL/Export.h>
 
 #include <QObject>
 

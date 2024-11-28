@@ -1,7 +1,7 @@
 #ifndef RENDERSTAGEEX_H
 #define RENDERSTAGEEX_H
 
-#include <osgQOpenGL/Export>
+#include <osgQOpenGL/Export.h>
 
 #include <osgUtil/RenderStage>
 

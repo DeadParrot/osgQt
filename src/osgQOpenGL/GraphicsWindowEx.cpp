@@ -1,5 +1,5 @@
-#include <osgQOpenGL/GraphicsWindowEx>
-#include <osgQOpenGL/StateEx>
+#include <osgQOpenGL/GraphicsWindowEx.h>
+#include <osgQOpenGL/StateEx.h>
 
 GraphicsWindowEx::GraphicsWindowEx(osg::GraphicsContext::Traits* traits)
 {
